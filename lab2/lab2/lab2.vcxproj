@@ -128,11 +128,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Class_Driver.cpp" />
+    <ClCompile Include="Class_Route.cpp" />
     <ClCompile Include="Class_transport.cpp" />
     <ClCompile Include="lab2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Class_Driver.h" />
+    <ClInclude Include="Class_Route.h" />
     <ClInclude Include="Class_transport.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
