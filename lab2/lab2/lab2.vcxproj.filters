@@ -21,9 +21,15 @@
     <ClCompile Include="Class_transport.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Class_Driver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Class_transport.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Class_Driver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
