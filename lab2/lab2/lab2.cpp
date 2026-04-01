@@ -1,102 +1,71 @@
 ﻿#include <iostream>
-#include "Class_transport.h"
-#include "Class_Driver.h"
-#include "Class_Route.h"
+#include "Car.h"
+#include "Truck.h"
 
 using namespace std;
 
 int main()
 {
-    Transport t1("BMW", "M3", 2005, 10000, 60);
-    Driver d1("Ivan Petrenko", 5, "AB123456");
-    Route r1("Kyiv", "Lviv", 540);
+    cout << "================ CAR =================\n";
 
-    t1.printInfo();
-    d1.printInfo();
-    r1.printInfo();
+    Car car1("BMW", "M3", 2020, 15000, 60, 5, 3.0);
+    car1.printCarInfo();
 
-    cout << "<--------------------------------------------------------------->\n";
-    cout << "                            Copy                                 \n";
+    cout << "\n================ COPY =================\n";
 
-    Transport t2 = t1;
-    t2.printInfo();
-    Driver d2 = d1;
-    d1.printInfo();
-    Route r2 = r1;
-    r1.printInfo();
+    Car car2 = car1; // copy constructor
+    car2.printCarInfo();
 
+    cout << "\n================ MOVE =================\n";
 
-    cout << "<--------------------------------------------------------------->\n";
-    cout << "                            Move                                 \n";
+    Car car3 = move(car1); // move constructor
+    car3.printCarInfo();
 
-    Transport t3 = move(t1);
+    cout << "\n================ ASSIGNMENT =================\n";
+
+    Car car4;
+    car4 = car3; // operator=
+    car4.printCarInfo();
+
+    cout << "\n================ OPERATORS =================\n";
+
+    Transport t1("Audi", "A6", 2018, 10000, 50);
+    Transport t2("Toyota", "Camry", 2017, 8000, 40);
+
+    Transport t3 = t1 + t2;
     t3.printInfo();
-    Driver d3 = move(d1);
-    d3.printInfo();
-    Route r3 = move(r1);
-    r3.printInfo();
 
-    cout << "<--------------------------------------------------------------->\n";
-    cout << "                             this                                 \n";
-
-    t3.drive(10);
-    t3.refuel(20);
-    t3.printInfo();
-    d3.exp(10);
-    d3.printInfo();
-    r3.Routes(100);
-    r3.printInfo();
-
-    cout << "<--------------------------------------------------------------->\n";
-    cout << "                             Const                                 \n";
-
-    const Transport t4("Audi", "A6", 2010, 12000, 70);
+    Transport t4 = ++t1;
     t4.printInfo();
-    const Driver d4("Petro", 6, "AB654321");
-    d4.printInfo();
-    const Route r4("Odesha", "Lviv", 640);
-    r4.printInfo();
 
-    cout << "<--------------------------------------------------------------->\n";
-    cout << "                             operator+                                 \n";
+    cout << "\n================ TRUCK =================\n";
 
-    Transport t5("Toyota", "Camry", 2015, 8000, 65);
-    t5.printInfo();
-    Transport t6 = t3 + t5;
-    t6.printInfo();
+    Truck truck1("Volvo", "FH16", 2022,
+        250000, 300,
+        2, 12.8, 20000);
 
-    Driver d5 = d3 + d4;
-    d5.printInfo();
+    truck1.printTruckInfo();
 
-    Route r5 = r3 + r4;
-    r5.printInfo();
+    cout << "\n================ COPY TRUCK =================\n";
 
-    cout << "<--------------------------------------------------------------->\n";
-    cout << "                             operator-                                 \n";
-    Transport t7 = -t5;
-    cout << t7 << endl;
+    Truck truck2 = truck1;
+    truck2.printTruckInfo();
 
-    cout << "<--------------------------------------------------------------->\n";
-    cout << "                             (>>,<<)                                \n";
-    Transport t8;
-    cin >> t8;
-    cout << t8 << endl;
+    cout << "\n================ MOVE TRUCK =================\n";
 
-    Driver d6;
-    cin >> d6;
-    cout << d6 << endl;
+    Truck truck3 = move(truck1);
+    truck3.printTruckInfo();
 
-    Route r6;
-    cin >> r6;
-    cout << r6 << endl;
+    cout << "\n================ INPUT / OUTPUT =================\n";
 
-    cout << "<--------------------------------------------------------------->\n";
-    cout << "                             obj                                \n";
+    Transport t5;
+    cin >> t5;
+    cout << t5 << endl;
+
+    cout << "\n================ OBJECT COUNT =================\n";
     Transport::showCount();
-    Driver::showCount();
-    Route::showCount();
 
-    cout << "<--------------------------------------------------------------->\n";
+    cout << "\n================ END PROGRAM =================\n";
 
     return 0;
 }
