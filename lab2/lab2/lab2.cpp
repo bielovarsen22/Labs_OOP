@@ -13,18 +13,18 @@ int main()
 
     cout << "\n================ COPY =================\n";
 
-    Car car2 = car1; // copy constructor
+    Car car2 = car1; 
     car2.printCarInfo();
 
     cout << "\n================ MOVE =================\n";
 
-    Car car3 = move(car1); // move constructor
+    Car car3 = move(car1); 
     car3.printCarInfo();
 
     cout << "\n================ ASSIGNMENT =================\n";
 
     Car car4;
-    car4 = car3; // operator=
+    car4 = car3; 
     car4.printCarInfo();
 
     cout << "\n================ OPERATORS =================\n";
