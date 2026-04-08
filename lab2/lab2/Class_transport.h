@@ -31,7 +31,10 @@ public:
 
     void refuel(double amount);
     void drive(double distance);
-    void printInfo() const;
+
+    virtual void printInfo() const;
+    virtual double getEfficiency() const = 0; 
+
 
     
     void setMileage(double mileage);

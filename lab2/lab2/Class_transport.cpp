@@ -85,31 +85,6 @@ void Transport::showCount()
     cout << "Number of Transport objects: " << count << endl;
 }
 
-
-Transport Transport::operator+(const Transport& other)
-{
-    return Transport(
-        brand,
-        model,
-        year,
-        mileage + other.mileage,
-        fuel + other.fuel
-    );
-}
-
-
-Transport Transport::operator++()
-{
-    return Transport(
-        brand,
-        model,
-        year,
-        mileage,
-        ++fuel
-    );
-}
-
-
 ostream& operator<<(ostream& out, const Transport& t)
 {
     out << t.brand << " " << t.model << " "
