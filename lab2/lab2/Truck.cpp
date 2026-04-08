@@ -20,9 +20,14 @@ Truck::~Truck()
     cout << "Truck destroyed\n";
 }
 
-void Truck::printTruckInfo() const
+void Truck::printInfo() const
 {
-    printCarInfo();
+    Car::printInfo();
     cout << "Max load: " << maxLoad << " kg\n";
     trailer.show();
+}
+
+double Truck::getEfficiency() const
+{
+    return 50.0 / maxLoad; // умовно
 }

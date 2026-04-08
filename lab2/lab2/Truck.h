@@ -19,7 +19,8 @@ public:
 
     ~Truck();
 
-    void printTruckInfo() const;
+    void printInfo() const override final;
+    double getEfficiency() const override;
 };
 
 #endif
