@@ -4,66 +4,29 @@
 
 using namespace std;
 
+void show(const Transport& t)
+{
+    t.printInfo();
+}
+
 int main()
 {
     cout << "================ CAR =================\n";
 
     Car car1("BMW", "M3", 2020, 15000, 60, 5, 3.0);
-    car1.printCarInfo();
+    car1.printInfo();
 
-    cout << "\n================ COPY =================\n";
+    cout << "\n===== POLYMORPHISM =====\n";
 
-    Car car2 = car1; 
-    car2.printCarInfo();
+    Transport* t;
 
-    cout << "\n================ MOVE =================\n";
+    t = new Car("Audi", "A4", 2019, 12000, 55, 5, 2.0);
+    t->printInfo(); // Car
 
-    Car car3 = move(car1); 
-    car3.printCarInfo();
+    t = new Truck("MAN", "TGX", 2021, 200000, 400, 2, 12.0, 18000);
+    t->printInfo(); // Truck
 
-    cout << "\n================ ASSIGNMENT =================\n";
-
-    Car car4;
-    car4 = car3; 
-    car4.printCarInfo();
-
-    cout << "\n================ OPERATORS =================\n";
-
-    Transport t1("Audi", "A6", 2018, 10000, 50);
-    Transport t2("Toyota", "Camry", 2017, 8000, 40);
-
-    Transport t3 = t1 + t2;
-    t3.printInfo();
-
-    Transport t4 = ++t1;
-    t4.printInfo();
-
-    cout << "\n================ TRUCK =================\n";
-
-    Truck truck1("Volvo", "FH16", 2022,
-        250000, 300,
-        2, 12.8, 20000);
-
-    truck1.printTruckInfo();
-
-    cout << "\n================ COPY TRUCK =================\n";
-
-    Truck truck2 = truck1;
-    truck2.printTruckInfo();
-
-    cout << "\n================ MOVE TRUCK =================\n";
-
-    Truck truck3 = move(truck1);
-    truck3.printTruckInfo();
-
-    cout << "\n================ INPUT / OUTPUT =================\n";
-
-    Transport t5;
-    cin >> t5;
-    cout << t5 << endl;
-
-    cout << "\n================ OBJECT COUNT =================\n";
-    Transport::showCount();
+    delete t;
 
     cout << "\n================ END PROGRAM =================\n";
 

@@ -23,7 +23,8 @@ public:
 
     virtual ~Car();
 
-    void printCarInfo() const;
+    void printInfo() const override;
+    double getEfficiency() const override;
 };
 
 #endif

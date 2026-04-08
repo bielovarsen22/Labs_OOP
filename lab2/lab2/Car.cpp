@@ -44,9 +44,14 @@ Car::~Car()
     cout << "Car destroyed\n";
 }
 
-void Car::printCarInfo() const
+void Car::printInfo() const
 {
-    printInfo();
+    Transport::printInfo();
     cout << "Seats: " << seats << endl;
     engine.show();
+}
+
+double Car::getEfficiency() const
+{
+    return 100.0;
 }
