@@ -3,10 +3,11 @@
 
 #include <string>
 #include <iostream>
+#include "Moveble.h"
 using namespace std;
 
 
-class Transport
+class Transport:public Moveble
 {
 private:
     string brand;
@@ -43,8 +44,7 @@ public:
     static void showCount();
 
     
-    Transport operator+(const Transport& other);
-    Transport operator++();
+    
 
     
     friend ostream& operator<<(ostream& out, const Transport& t);
