@@ -31,3 +31,8 @@ double Truck::getEfficiency() const
 {
     return 50.0 / maxLoad; // умовно
 }
+
+void Truck::moves() const
+{
+    cout << "Truck is moving" << endl;
+}

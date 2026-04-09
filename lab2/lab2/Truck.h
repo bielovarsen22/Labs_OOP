@@ -21,6 +21,7 @@ public:
 
     void printInfo() const override final;
     double getEfficiency() const override;
+    void moves()const override;
 };
 
 #endif
