@@ -53,5 +53,10 @@ void Car::printInfo() const
 
 double Car::getEfficiency() const
 {
-    return 100.0;
+    return 0;
+}
+
+void Car::moves() const
+{
+    cout << "Car is moving" << endl;
 }

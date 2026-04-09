@@ -7,6 +7,7 @@ using namespace std;
 void show(const Transport& t)
 {
     t.printInfo();
+    t.moves();
 }
 
 int main()
@@ -23,8 +24,12 @@ int main()
     t = new Car("Audi", "A4", 2019, 12000, 55, 5, 2.0);
     t->printInfo(); // Car
 
+    show(*t);
+
     t = new Truck("MAN", "TGX", 2021, 200000, 400, 2, 12.0, 18000);
     t->printInfo(); // Truck
+
+    show(*t);
 
     delete t;
 
