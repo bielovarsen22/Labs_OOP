@@ -3,11 +3,10 @@
 
 #include <string>
 #include <iostream>
-#include "Moveble.h"
 using namespace std;
 
 
-class Transport:public Moveble
+class Transport
 {
 private:
     string brand;
@@ -32,11 +31,7 @@ public:
 
     void refuel(double amount);
     void drive(double distance);
-
     virtual void printInfo() const;
-    virtual double getEfficiency() const = 0; 
-
-
     
     void setMileage(double mileage);
 
@@ -44,7 +39,8 @@ public:
     static void showCount();
 
     
-    
+    Transport operator+(const Transport& other);
+    Transport operator++();
 
     
     friend ostream& operator<<(ostream& out, const Transport& t);
