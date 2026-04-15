@@ -10,25 +10,25 @@
 
 using namespace std;
 
-// --- СИСТЕМА ЗБЕРЕЖЕННЯ (Файли) ---
+
 
 void saveDatabase(const vector<unique_ptr<Transport>>& catalog) {
     ofstream out("database.txt");
     if (!out) throw runtime_error("Could not open file for writing!");
 
     for (const auto& item : catalog) {
-        // Визначаємо тип об'єкта для правильного зчитування потім
+        
         if (dynamic_cast<Truck*>(item.get())) out << "TRUCK: ";
         else if (dynamic_cast<Car*>(item.get())) out << "CAR: ";
         else out << "T ";
 
-        out << *item << endl; // Використовуємо ваш operator<<
+        out << *item << endl; 
     }
 }
 
 void loadDatabase(vector<unique_ptr<Transport>>& catalog) {
     ifstream in("database.txt");
-    if (!in) return; // Якщо файлу немає, просто починаємо з порожнього списку
+    if (!in) return; 
 
     string type;
     while (in >> type) {
@@ -37,7 +37,7 @@ void loadDatabase(vector<unique_ptr<Transport>>& catalog) {
         else if (type == "CAR:") ptr = make_unique<Car>();
         else ptr = make_unique<Transport>();
 
-        in >> *ptr; // Використовуємо ваш operator>>
+        in >> *ptr; 
         catalog.push_back(move(ptr));
     }
 }
@@ -47,7 +47,7 @@ void logAction(const string& message) {
     if (log) log << message << endl;
 }
 
-// --- МЕНЮ ---
+
 
 void adminMenu(vector<unique_ptr<Transport>>& catalog) {
     int choice;
